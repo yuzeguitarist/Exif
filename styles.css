@@ -1,0 +1,136 @@
+:root {
+  --bg: #0d0d0d;
+  --panel: #141414;
+  --line: #2e2e2e;
+  --text: #f3f3f3;
+  --muted: #b5b5b5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.app {
+  width: min(980px, 100% - 2rem);
+  margin: 2rem auto 3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.top h1 {
+  margin: 0;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  letter-spacing: 0.02em;
+}
+
+.top p {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+}
+
+.panel {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.upload-panel {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.file-label {
+  display: inline-block;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--text);
+  border-radius: 8px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+input[type="file"] {
+  color: var(--muted);
+}
+
+small { color: var(--muted); }
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+article h2 {
+  font-size: 1rem;
+  margin: 0 0 0.6rem;
+}
+
+dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 0.6rem;
+}
+
+dt {
+  color: var(--muted);
+}
+
+dd {
+  margin: 0;
+  word-break: break-word;
+}
+
+#preview {
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #000;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+button {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--text);
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover { background: #222; }
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .app {
+    width: min(980px, 100% - 1rem);
+    margin-top: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    border-radius: 10px;
+    padding: 0.85rem;
+  }
+}
