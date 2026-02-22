@@ -11,33 +11,36 @@
   </head>
   <body>
     <main class="app">
-      <header class="top">
+      <header class="top panel">
+        <p class="eyebrow">Minimal Monochrome UI</p>
         <h1>EXIF 银河分析助手</h1>
         <p>上传图片并提取拍摄参数、位置、方位角和天文背景信息。</p>
       </header>
 
       <section class="panel upload-panel">
-        <label for="fileInput" class="file-label">选择图片</label>
+        <div class="upload-row">
+          <label for="fileInput" class="file-label">选择图片</label>
+          <small>支持 JPEG / PNG / TIFF / HEIC / HEIF / DNG / 常见 RAW 扩展（前端解析能力依文件而定）。</small>
+        </div>
         <input
           id="fileInput"
           type="file"
           accept="image/*,.dng,.raw,.cr2,.cr3,.nef,.arw,.rw2,.orf,.raf,.pef,.srw,.heic,.heif,.tif,.tiff,.jpg,.jpeg,.png"
         />
-        <small>支持 JPEG / PNG / TIFF / HEIC / HEIF / DNG / 常见 RAW 扩展（前端解析能力依文件而定）。</small>
       </section>
 
-      <section class="panel" id="status">等待上传…</section>
+      <section class="panel status-panel" id="status">等待上传…</section>
 
       <section class="panel grid" id="resultGrid" hidden>
-        <article>
+        <article class="data-card">
           <h2>基础信息</h2>
           <dl id="basicData"></dl>
         </article>
-        <article>
+        <article class="data-card">
           <h2>拍摄与定位</h2>
           <dl id="captureData"></dl>
         </article>
-        <article>
+        <article class="data-card">
           <h2>天文分析</h2>
           <dl id="astroData"></dl>
         </article>
