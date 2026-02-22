@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EXIF 银河分析助手</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/exifr/dist/lite.umd.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="top">
+        <h1>EXIF 银河分析助手</h1>
+        <p>上传图片并提取拍摄参数、位置、方位角和天文背景信息。</p>
+      </header>
+
+      <section class="panel upload-panel">
+        <label for="fileInput" class="file-label">选择图片</label>
+        <input
+          id="fileInput"
+          type="file"
+          accept="image/*,.dng,.raw,.cr2,.cr3,.nef,.arw,.rw2,.orf,.raf,.pef,.srw,.heic,.heif,.tif,.tiff,.jpg,.jpeg,.png"
+        />
+        <small>支持 JPEG / PNG / TIFF / HEIC / HEIF / DNG / 常见 RAW 扩展（前端解析能力依文件而定）。</small>
+      </section>
+
+      <section class="panel" id="status">等待上传…</section>
+
+      <section class="panel grid" id="resultGrid" hidden>
+        <article>
+          <h2>基础信息</h2>
+          <dl id="basicData"></dl>
+        </article>
+        <article>
+          <h2>拍摄与定位</h2>
+          <dl id="captureData"></dl>
+        </article>
+        <article>
+          <h2>天文分析</h2>
+          <dl id="astroData"></dl>
+        </article>
+      </section>
+
+      <section class="panel" id="previewPanel" hidden>
+        <h2>预览</h2>
+        <img id="preview" alt="图片预览" />
+      </section>
+
+      <section class="panel actions" id="actions" hidden>
+        <button id="exportJson">导出 JSON</button>
+        <button id="exportCsv">导出 CSV</button>
+      </section>
+    </main>
+  </body>
+</html>
